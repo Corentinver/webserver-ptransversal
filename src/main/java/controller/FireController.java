@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dto.FireDTO;
 import repository.FireRepository;
+import service.PasserelleService;
 import service.SocketService;
 
 @RestController
@@ -16,12 +17,15 @@ public class FireController {
 	public SocketService socketService;
 	
 	@Autowired
+	public PasserelleService passerelleService; 
+
+	@Autowired
 	public FireRepository fireRepository;
 	
 	@PostMapping("/newFire")
 	public void newFire(@RequestBody FireDTO fire) {
+		passerelleService.newFire(fire);
 		socketService.sendNewFire(fire);
-		
 		fireRepository.save(fire);
 	}
 
