@@ -40,12 +40,11 @@ public class WebserverPtransversalApplication {
 					messagingTemplate.convertAndSend("/newFire", new FireDTO());
 					messagingTemplate.convertAndSend("/newFire/test", new FireDTO());
 					messagingTemplate.convertAndSend("/operation", new FireDTO());
-					System.out.println("aaaa");
+					System.out.println("running");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		};
 	}
-
 }

@@ -9,27 +9,39 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import dto.FireDTO;
+import dto.FireFighterDTO;
 import dto.FireStationDTO;
-import repository.FireRepository;
-import repository.FireStationRepository;
+import dto.SensorDTO;
+import dto.VehicleDTO;
+import service.ResourceService;
 
 @RestController
 public class ResourceController {
-
 	
 	@Autowired
-	public FireRepository fireRepository;
-	
-	@Autowired
-	public FireStationRepository fireStationRepository;
+	public ResourceService resourceService;
 	
 	@GetMapping("/allFireStation") 
 	public List<FireStationDTO> allFireStation() 
 	{
-		return fireStationRepository.findAll();
+		return resourceService.getAllFireStation();
 	}
-	
-	
 
+	@GetMapping("/allFireFighter") 
+	public List<FireFighterDTO> allFireFighter()
+	{
+		return resourceService.getAllFireFighter();
+	}
+
+	@GetMapping("/allVehicle") 
+	public List<VehicleDTO> allVehicle()
+	{
+		return resourceService.getAllVehicle();
+	}
+
+	@GetMapping("/allSensor") 
+	public List<SensorDTO> allSensor()
+	{
+		return resourceService.getAllSensor();
+	}
 }
