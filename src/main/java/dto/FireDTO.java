@@ -1,7 +1,5 @@
 package dto;
 
-import java.awt.Point;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,18 +7,18 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class FireDTO {
 
 	@Id
-	public int id;
+	public String id;
 	public double intensity;
 	public int typeFire;
 	public PointDTO location;
 	
 	public FireDTO() {}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

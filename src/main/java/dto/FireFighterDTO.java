@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class FireFighterDTO {
 
 	@Id
-	public int id;
+	public String id;
 	
 	public int idFireStation;
 	
@@ -15,11 +15,11 @@ public class FireFighterDTO {
 	
 	public FireFighterDTO() {}
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 	
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	

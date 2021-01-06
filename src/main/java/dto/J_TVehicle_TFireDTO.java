@@ -5,24 +5,24 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document("J_TVehicle_TFire")
 public class J_TVehicle_TFireDTO {
 
-	public int typeVehicle;
-	public int typeFire;
+	public String typeVehicle;
+	public String typeFire;
 	
 	public J_TVehicle_TFireDTO() {}
 
-	public int getTypeVehicle() {
+	public String getTypeVehicle() {
 		return typeVehicle;
 	}
 
-	public void setTypeVehicle(int typeVehicle) {
+	public void setTypeVehicle(String typeVehicle) {
 		this.typeVehicle = typeVehicle;
 	}
 
-	public int getTypeFire() {
+	public String getTypeFire() {
 		return typeFire;
 	}
 
-	public void setTypeFire(int typeFire) {
+	public void setTypeFire(String typeFire) {
 		this.typeFire = typeFire;
 	}
 

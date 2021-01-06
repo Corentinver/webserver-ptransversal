@@ -1,6 +1,5 @@
 package dto;
 
-import java.awt.Point;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
@@ -10,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class OperationDTO {
 
 	@Id
-	public int id;
+	public String id;
 	
 	public List<Integer> idFireFighter;
 	
@@ -22,11 +21,11 @@ public class OperationDTO {
 	
 	public OperationDTO() {}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
