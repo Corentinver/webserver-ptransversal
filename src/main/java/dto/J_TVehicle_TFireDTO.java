@@ -1,29 +1,35 @@
 package dto;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("J_TVehicle_TFire")
 public class J_TVehicle_TFireDTO {
 
-	public String typeVehicle;
-	public String typeFire;
+	public String idVehicleType;
+	public String idFireType;
 	
 	public J_TVehicle_TFireDTO() {}
 
 	public String getTypeVehicle() {
-		return typeVehicle;
+		return idVehicleType;
 	}
 
-	public void setTypeVehicle(String typeVehicle) {
-		this.typeVehicle = typeVehicle;
+	public void setTypeVehicle(String idVehicleType) {
+		this.idVehicleType = idVehicleType;
 	}
 
 	public String getTypeFire() {
-		return typeFire;
+		return idFireType;
 	}
 
-	public void setTypeFire(String typeFire) {
-		this.typeFire = typeFire;
+	public void setTypeFire(String idFireType) {
+		this.idFireType = idFireType;
+	}
+
+	@Override
+	public String toString() {
+		return this.idFireType + " " + this.idVehicleType;
 	}
 
 }

@@ -9,9 +9,9 @@ public class VehicleDTO {
 	@Id
 	public String id;
 	
-	public int idType;
+	public String idType;
 	
-	public int idFireStation;
+	public String idFireStation;
 	
 	public VehicleDTO() {}
 
@@ -23,19 +23,19 @@ public class VehicleDTO {
 		this.id = id;
 	}
 
-	public int getIdType() {
+	public String getIdType() {
 		return idType;
 	}
 
-	public void setIdType(int idType) {
+	public void setIdType(String idType) {
 		this.idType = idType;
 	}
 
-	public int getIdFireStation() {
+	public String getIdFireStation() {
 		return idFireStation;
 	}
 
-	public void setIdFireStation(int idFireStation) {
+	public void setIdFireStation(String idFireStation) {
 		this.idFireStation = idFireStation;
 	}
 	

@@ -4,13 +4,16 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("Fire")
-public class FireDTO {
+public class FireDTO{
 
 	@Id
 	public String id;
-	public double intensity;
-	public int typeFire;
+	public int intensity;
+	public String idTypeFire;
 	public PointDTO location;
+	public int size;
+	public static enum stateFire { Initialize, InOperation, Completed };
+	public stateFire state;
 	
 	public FireDTO() {}
 
@@ -22,20 +25,20 @@ public class FireDTO {
 		this.id = id;
 	}
 
-	public double getIntensity() {
+	public int getIntensity() {
 		return intensity;
 	}
 
-	public void setIntensity(double intensity) {
+	public void setIntensity(int intensity) {
 		this.intensity = intensity;
 	}
 
-	public int getTypeFire() {
-		return typeFire;
+	public String getTypeFire() {
+		return idTypeFire;
 	}
 
-	public void setTypeFire(int typeFire) {
-		this.typeFire = typeFire;
+	public void setTypeFire(String idTypeFire) {
+		this.idTypeFire = idTypeFire;
 	}
 
 	public PointDTO getLocation() {
@@ -44,6 +47,22 @@ public class FireDTO {
 
 	public void setLocation(PointDTO location) {
 		this.location = location;
+	}
+
+	public int getSize(){
+		return size;
+	}
+
+	public void setSize(int size){
+		this.size = size;
+	}
+
+	public stateFire getState(){
+		return state;
+	}
+
+	public void setState(stateFire state){
+		this.state = state;
 	}
 	
 }
