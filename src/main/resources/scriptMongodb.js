@@ -179,18 +179,18 @@ db.TypeVehicle.insertMany([
 
 // Insert Vehicle
 
-var typeVehicles = db.typeVehicle.find();
 
+var fireStations = db.FireStation.find();
 
 fireStations.forEach(fireStation => {
+    var typeVehicles = db.TypeVehicle.find();
     typeVehicles.forEach(type => {
         insertVehicle = {
             idType: type._id,
-            idFireStation: fireStations._id
+            idFireStation: fireStation._id
         };
-
-        db.Vehicle.insert(insertFighter);
-        db.Vehicle.insert(insertFighter);
+        db.Vehicle.insert(insertVehicle);
+        db.Vehicle.insert(insertVehicle);
     });
 })
 
@@ -495,3 +495,59 @@ db.TypeFire.insertMany([
         number: 3
     }
 ])
+
+var typeFires = db.TypeFire.find()
+var typeVehicles = db.TypeVehicle.find()
+var arrayVehicles = []
+
+
+typeVehicles.forEach(type => {
+    arrayVehicles.push(type)
+})
+
+typeFires.forEach(typeFire => {
+    switch(typeFire.number){
+        case 0 :
+
+            insertJ_Vehicle_Fire_Type = {
+                idVehicleType : arrayVehicles.filter(type => type.tag == "FPT")[0]._id,
+                idFireType : typeFire._id
+            }
+
+            db.J_TVehicle_TFire.insert(insertJ_Vehicle_Fire_Type)
+            break;
+        case 1 :
+            insertJ_Vehicle_Fire_Type1 = {
+                idVehicleType : arrayVehicles.filter(type => type.tag == "FPT")[0]._id,
+                idFireType : typeFire._id
+            }
+
+            insertJ_Vehicle_Fire_Type2 = {
+                idVehicleType : arrayVehicles.filter(type => type.tag == "EPA")[0]._id,
+                idFireType : typeFire._id
+            }
+
+            db.J_TVehicle_TFire.insert(insertJ_Vehicle_Fire_Type1)
+            db.J_TVehicle_TFire.insert(insertJ_Vehicle_Fire_Type2)
+            break;
+        case 2 :
+            insertJ_Vehicle_Fire_Type = {
+                idVehicleType : arrayVehicles.filter(type => type.tag == "CCF")[0]._id,
+                idFireType : typeFire._id
+            }
+
+            db.J_TVehicle_TFire.insert(insertJ_Vehicle_Fire_Type)
+            break;
+        case 3 :
+            insertJ_Vehicle_Fire_Type = {
+                idVehicleType : arrayVehicles.filter(type => type.tag == "FPT")[0]._id,
+                idFireType : typeFire._id
+            }
+
+            db.J_TVehicle_TFire.insert(insertJ_Vehicle_Fire_Type)
+            break;
+    }
+    
+})
+
+
