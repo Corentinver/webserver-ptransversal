@@ -1,4 +1,4 @@
-package dto;
+package dto.internal;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 

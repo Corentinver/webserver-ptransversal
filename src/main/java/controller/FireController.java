@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import dto.FireDTO;
+import dto.internal.FireDTO;
 import repository.FireRepository;
 import service.PasserelleService;
 import service.SocketService;

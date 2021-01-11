@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import dto.FireFighterDTO;
-import dto.FireStationDTO;
-import dto.SensorDTO;
-import dto.VehicleDTO;
+import dto.internal.FireFighterDTO;
+import dto.internal.FireStationDTO;
+import dto.internal.SensorDTO;
+import dto.internal.VehicleDTO;
 import service.ResourceService;
 
 @RestController
@@ -44,4 +44,5 @@ public class ResourceController {
 	{
 		return resourceService.getAllSensor();
 	}
+	
 }

@@ -1,4 +1,4 @@
-package dto;
+package dto.internal;
 
 public class PointDTO {
 	
@@ -6,6 +6,11 @@ public class PointDTO {
 	public double longitude;
 	
 	public PointDTO() {}
+	
+	public PointDTO(double latitude, double longitude) {
+		this.latitude = latitude;
+		this.longitude = longitude;
+	}
 
 	public double getLatitude() {
 		return latitude;

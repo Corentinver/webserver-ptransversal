@@ -16,7 +16,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 import org.springframework.messaging.simp.SimpMessageSendingOperations;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import dto.FireDTO;
+import dto.internal.FireDTO;
 
 @SpringBootApplication
 @EnableWebMvc
@@ -34,17 +34,18 @@ public class WebserverPtransversalApplication {
 	@Bean
 	public CommandLineRunner websocketDemo() {
 		return (args) -> {
+			/*
 			while (true) {
 				try {
 					Thread.sleep(3*1000); // Each 3 sec.
 					messagingTemplate.convertAndSend("/newFire", new FireDTO());
 					messagingTemplate.convertAndSend("/newFire/test", new FireDTO());
 					messagingTemplate.convertAndSend("/operation", new FireDTO());
-					System.out.println("running");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
+			*/
 		};
 	}
 }
