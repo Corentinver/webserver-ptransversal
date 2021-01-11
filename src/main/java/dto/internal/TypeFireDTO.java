@@ -1,18 +1,19 @@
-package dto;
+package dto.internal;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document("Sensor")
-public class SensorDTO {
-    @Id
+@Document("TypeFire")
+public class TypeFireDTO {
+
+	@Id
 	public String id;
 	
-	public PointDTO location;
+	public String name;
+
+	public int number;
 	
-    public String name;
-    
-    public SensorDTO() {}
+	public TypeFireDTO() {}
 
 	public String getId() {
 		return id;
@@ -22,14 +23,6 @@ public class SensorDTO {
 		this.id = id;
 	}
 
-	public PointDTO getLocation() {
-		return location;
-	}
-
-	public void setLocation(PointDTO location) {
-		this.location = location;
-	}
-
 	public String getName() {
 		return name;
 	}
@@ -37,4 +30,13 @@ public class SensorDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public int getNumner() {
+		return number;
+	}
+
+	public void setNumner(int number) {
+		this.number = number;
+	}
+
 }

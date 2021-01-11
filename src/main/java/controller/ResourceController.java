@@ -9,12 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import dto.FireFighterDTO;
-import dto.FireStationDTO;
-import dto.J_TVehicle_TFireDTO;
-import dto.SensorDTO;
-import dto.TypeFireDTO;
-import dto.VehicleDTO;
+import dto.internal.*;
 import service.ResourceService;
 
 @RestController
@@ -46,18 +41,15 @@ public class ResourceController {
 	{
 		return resourceService.getAllSensor();
 	}
-	
 	@GetMapping("/allTypeFire") 
 	public List<TypeFireDTO> allTypeFire()
 	{
 		return resourceService.getAllTypeFire();
 	}
 
-
 	@GetMapping("/allTVehicle_TFire") 
 	public List<J_TVehicle_TFireDTO> allTVehicle_TFire()
 	{
-		System.out.println(resourceService.getAllTVehicle_TFire());
 		return resourceService.getAllTVehicle_TFire();
 	}
 }

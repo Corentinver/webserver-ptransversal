@@ -1,24 +1,16 @@
 package controller;
 
-import javax.jms.ConnectionFactory;
 import javax.jms.Queue;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.jms.DefaultJmsListenerContainerFactoryConfigurer;
-import org.springframework.context.annotation.Bean;
 import org.springframework.jms.annotation.EnableJms;
-import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
-import org.springframework.jms.config.JmsListenerContainerFactory;
 import org.springframework.jms.core.JmsTemplate;
-import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
-import org.springframework.jms.support.converter.MessageConverter;
-import org.springframework.jms.support.converter.MessageType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import dto.FireDTO;
-import dto.OperationDTO;
+import dto.internal.FireDTO;
+import dto.internal.OperationDTO;
 import repository.FireRepository;
 import repository.OperationRepository;
 import service.PasserelleService;
@@ -68,8 +60,8 @@ public class FireController {
 	public void newOperation(@RequestBody OperationDTO operation) {
 		//passerelleService.newFire(fire);
 		//socketService.sendNewFire(fire);
-		FireDTO savedFire = OperationRepository.save(fire);
-		jmsTemplate.convertAndSend(queueFire, savedFire);
+		operationRepository.save(operation);
+		//jmsTemplate.convertAndSend(queueFire, savedFire);
 	}
 
 }

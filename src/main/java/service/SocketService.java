@@ -3,8 +3,8 @@ package service;
 import org.springframework.messaging.simp.SimpMessageSendingOperations;
 import org.springframework.stereotype.Service;
 
-import dto.FireDTO;
-import dto.OperationDTO;
+import dto.internal.FireDTO;
+import dto.internal.OperationDTO;
 
 @Service
 public class SocketService {

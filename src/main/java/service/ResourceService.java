@@ -4,10 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import dto.FireStationDTO;
-import dto.J_TVehicle_TFireDTO;
-import dto.FireFighterDTO;
-import dto.VehicleDTO;
+
+import dto.internal.FireFighterDTO;
+import dto.internal.FireStationDTO;
+import dto.internal.SensorDTO;
+import dto.internal.VehicleDTO;
 import repository.FireFighterRepository;
 import repository.FireRepository;
 import repository.FireStationRepository;
@@ -17,8 +18,7 @@ import repository.SensorRepository;
 import repository.TypeFireRepository;
 import repository.TypeVehicleRepository;
 import repository.VehicleRepository;
-import dto.SensorDTO;
-import dto.TypeFireDTO;
+import dto.internal.*;
 
 @Service
 public class ResourceService {

@@ -1,19 +1,19 @@
-package dto;
+package dto.internal;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document("TypeFire")
-public class TypeFireDTO {
+@Document("TypeVehicle")
+public class TypeVehicleDTO {
 
 	@Id
 	public String id;
 	
 	public String name;
-
-	public int number;
 	
-	public TypeFireDTO() {}
+	public int idFireStation;
+	
+	public TypeVehicleDTO() {}
 
 	public String getId() {
 		return id;
@@ -31,12 +31,12 @@ public class TypeFireDTO {
 		this.name = name;
 	}
 
-	public int getNumner() {
-		return number;
+	public int getIdFireStation() {
+		return idFireStation;
 	}
 
-	public void setNumner(int number) {
-		this.number = number;
+	public void setIdFireStation(int idFireStation) {
+		this.idFireStation = idFireStation;
 	}
-
+	
 }
