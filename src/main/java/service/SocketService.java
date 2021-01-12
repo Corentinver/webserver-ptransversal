@@ -15,8 +15,8 @@ public class SocketService {
 		socketTemplate.convertAndSend("/newFire", fire);
 	}
 	
-	public void updateFire() {
-		// socketTemplate.convertAndSend("updateFire", x);
+	public void updateFire(FireDTO fire) {
+		socketTemplate.convertAndSend("updateFire", fire);
 	}
 	
 	public void sendOperation(OperationDTO operation) {

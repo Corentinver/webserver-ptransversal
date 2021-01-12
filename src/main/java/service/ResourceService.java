@@ -1,7 +1,10 @@
 package service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -91,6 +94,18 @@ public class ResourceService {
     {
         return operationRepository.findAll();
     }
-
     */
+    
+    public List<TypeVehicleDTO> getAllTypeVehicle() {
+    	return typeVehicleRepository.findAll();
+    }
+    
+    public FireStationInfosDTO getFireStationInfos(String idFireStation) {
+    	List<FireFighterDTO> fireFighters = fireFighterRepository.findByIdFireStation(new ObjectId(idFireStation));
+    	List<VehicleDTO> listVehicles = vehicleRepository.findByIdFireStation(new ObjectId(idFireStation));
+    	FireStationInfosDTO fireStationInfos = new FireStationInfosDTO();
+    	fireStationInfos.setNbFireFighters(fireFighters.size());
+    	fireStationInfos.buildVehiclesByType(listVehicles);
+    	return fireStationInfos;  	
+    }
 }

@@ -41,10 +41,17 @@ public class ResourceController {
 	{
 		return resourceService.getAllSensor();
 	}
+	
 	@GetMapping("/allTypeFire") 
 	public List<TypeFireDTO> allTypeFire()
 	{
 		return resourceService.getAllTypeFire();
+	}
+	
+	@GetMapping("/allTypeVehicle") 
+	public List<TypeVehicleDTO> allTypeVehicle()
+	{
+		return resourceService.getAllTypeVehicle();
 	}
 
 	@GetMapping("/allTVehicle_TFire") 
@@ -52,4 +59,12 @@ public class ResourceController {
 	{
 		return resourceService.getAllTVehicle_TFire();
 	}
+	
+	@GetMapping("/informationsFireStation") 
+	public FireStationInfosDTO getInformationsFireStation(@RequestParam String idFireStation)
+	{
+		return resourceService.getFireStationInfos(idFireStation);
+	}
+		
+	
 }
