@@ -16,7 +16,9 @@ import org.springframework.messaging.simp.SimpMessageSendingOperations;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import dto.internal.FireDTO;
+import dto.internal.FireStationDTO;
 import dto.internal.PointDTO;
+import service.ResourceService;
 
 @SpringBootApplication
 @EnableWebMvc
@@ -27,7 +29,6 @@ public class WebserverPtransversalApplication {
 	@Autowired
 	private SimpMessageSendingOperations messagingTemplate;
 
-	
 	public static void main(String[] args) {
 		SpringApplication.run(WebserverPtransversalApplication.class, args);
 	}

@@ -3,9 +3,13 @@ package controller;
 import java.util.List;
 import java.util.Set;
 
+import com.mongodb.client.model.geojson.Point;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -64,6 +68,13 @@ public class ResourceController {
 	public FireStationInfosDTO getInformationsFireStation(@RequestParam String idFireStation)
 	{
 		return resourceService.getFireStationInfos(idFireStation);
+	}
+
+	@GetMapping("/vehicleLocation") 
+	public PointDTO getLocationByVehicle(@RequestHeader String idVehicle)
+	{
+		System.out.println(idVehicle);
+		return resourceService.getPointDTOByVehicle(idVehicle);
 	}
 		
 	

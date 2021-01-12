@@ -3,9 +3,11 @@ package service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.geo.Point;
 import org.springframework.stereotype.Service;
 
 import dto.internal.FireFighterDTO;
@@ -25,6 +27,7 @@ import dto.internal.*;
 
 @Service
 public class ResourceService {
+
     @Autowired
 	public FireRepository fireRepository;
 	
@@ -98,6 +101,16 @@ public class ResourceService {
     
     public List<TypeVehicleDTO> getAllTypeVehicle() {
     	return typeVehicleRepository.findAll();
+    }
+
+    public PointDTO getPointDTOByVehicle(String idVehicle){
+        Optional<VehicleDTO> ve = vehicleRepository.findById(new ObjectId(idVehicle));
+        PointDTO point = null;
+        if(ve.isPresent()){
+            point = fireStationRepository.findById(new ObjectId(ve.get().idFireStation)).get().location;
+
+        }
+        return point;
     }
     
     public FireStationInfosDTO getFireStationInfos(String idFireStation) {

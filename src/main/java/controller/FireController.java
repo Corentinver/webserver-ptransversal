@@ -30,9 +30,6 @@ public class FireController {
 	public FireRepository fireRepository;
 
 	@Autowired
-	public OperationRepository operationRepository;
-
-	@Autowired
 	public JmsTemplate jmsTemplate;
 
 	@Autowired
@@ -43,7 +40,7 @@ public class FireController {
 		//passerelleService.newFire(fire);
 		socketService.sendNewFire(fire);
 		FireDTO savedFire = fireRepository.save(fire);
-		//jmsTemplate.convertAndSend(queueFire, savedFire);
+		jmsTemplate.convertAndSend(queueFire, savedFire);
 		return savedFire;
 	}
 
@@ -53,15 +50,6 @@ public class FireController {
 		//passerelleService.newFire(fire);
 		socketService.updateFire(fire);
 		FireDTO savedFire = fireRepository.save(fire);
-	}
-
-
-	@PostMapping("/newOperation")
-	public void newOperation(@RequestBody OperationDTO operation) {
-		//passerelleService.newFire(fire);
-		//socketService.sendNewFire(fire);
-		operationRepository.save(operation);
-		//jmsTemplate.convertAndSend(queueFire, savedFire);
 	}
 
 }

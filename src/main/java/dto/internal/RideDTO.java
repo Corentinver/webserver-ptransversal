@@ -10,7 +10,6 @@ public class RideDTO {
 
 	@Id
 	public String operationId;
-	
 	public String vehicleId;
 	public List<PointDTO> listLocalisations;
 	public double duration;
