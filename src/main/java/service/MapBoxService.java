@@ -31,7 +31,7 @@ public class MapBoxService {
 	public List<PointDTO> getListLocations(MapBoxDTO mapBox) {
 		List<PointDTO> listLocations = new ArrayList<PointDTO>();
 		if (mapBox != null && mapBox.getRoutes().size() > 0) {
-			mapBox.getRoutes().get(0).getGeometry().getCoordinates().forEach(l -> listLocations.add(new PointDTO(l.get(0), l.get(1))));
+			mapBox.getRoutes().get(0).getGeometry().getCoordinates().forEach(l -> listLocations.add(new PointDTO(l.get(1), l.get(0))));
 		}
 		return listLocations;
 	}

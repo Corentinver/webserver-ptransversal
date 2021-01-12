@@ -38,6 +38,7 @@ public class WebserverPtransversalApplication {
 			
 			while (true) {
 				try {
+					/*
 					Thread.sleep(15000);
 					FireDTO fire = new FireDTO();
 					fire.setId("fire1");
@@ -53,6 +54,7 @@ public class WebserverPtransversalApplication {
 					fire.setIntensity(0);
 					messagingTemplate.convertAndSend("/updateFire", fire);
 					System.out.println("Update");
+					*/
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

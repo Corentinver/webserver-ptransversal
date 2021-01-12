@@ -2,12 +2,15 @@ package dto.internal;
 
 import java.util.List;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("Ride")
 public class RideDTO {
 
+	@Id
 	public String operationId;
+	
 	public String vehicleId;
 	public List<PointDTO> listLocalisations;
 	public double duration;
