@@ -27,6 +27,5 @@ public class PointDTO {
 	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
-	
 
 }

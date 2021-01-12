@@ -10,6 +10,8 @@ public class TypeFireDTO {
 	public String id;
 	
 	public String name;
+
+	public int number;
 	
 	public TypeFireDTO() {}
 
@@ -27,6 +29,14 @@ public class TypeFireDTO {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public int getNumner() {
+		return number;
+	}
+
+	public void setNumner(int number) {
+		this.number = number;
 	}
 
 }

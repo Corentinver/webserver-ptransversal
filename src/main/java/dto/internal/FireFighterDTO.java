@@ -9,7 +9,7 @@ public class FireFighterDTO {
 	@Id
 	public String id;
 	
-	public int idFireStation;
+	public String idFireStation;
 	
 	public String name;
 	
@@ -23,11 +23,11 @@ public class FireFighterDTO {
 		this.id = id;
 	}
 	
-	public int getIdFireStation() {
+	public String getIdFireStation() {
 		return idFireStation;
 	}
 	
-	public void setIdFireStation(int idFireStation) {
+	public void setIdFireStation(String idFireStation) {
 		this.idFireStation = idFireStation;
 	}
 	

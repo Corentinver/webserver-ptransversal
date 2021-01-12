@@ -11,11 +11,11 @@ public class OperationDTO {
 	@Id
 	public String id;
 	
-	public List<Integer> idFireFighter;
+	public List<String> idFireFighter;
 	
-	public List<Integer> idVehicle;
+	public List<String> idVehicle;
 	
-	public int idFire;
+	public String idFire;
 	
 	public PointDTO location;
 	
@@ -29,27 +29,27 @@ public class OperationDTO {
 		this.id = id;
 	}
 
-	public List<Integer> getIdFireFighter() {
+	public List<String> getIdFireFighter() {
 		return idFireFighter;
 	}
 
-	public void setIdFireFighter(List<Integer> idFireFighter) {
+	public void setIdFireFighter(List<String> idFireFighter) {
 		this.idFireFighter = idFireFighter;
 	}
 
-	public List<Integer> getIdVehicle() {
+	public List<String> getIdVehicle() {
 		return idVehicle;
 	}
 
-	public void setIdVehicle(List<Integer> idVehicle) {
+	public void setIdVehicle(List<String> idVehicle) {
 		this.idVehicle = idVehicle;
 	}
 
-	public int getIdFire() {
+	public String getIdFire() {
 		return idFire;
 	}
 
-	public void setIdFire(int idFire) {
+	public void setIdFire(String idFire) {
 		this.idFire = idFire;
 	}
 

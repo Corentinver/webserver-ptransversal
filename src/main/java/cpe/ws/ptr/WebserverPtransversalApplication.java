@@ -3,13 +3,12 @@ package cpe.ws.ptr;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.jms.ConnectionFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration;
-import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
@@ -28,6 +27,7 @@ public class WebserverPtransversalApplication {
 	@Autowired
 	private SimpMessageSendingOperations messagingTemplate;
 
+	
 	public static void main(String[] args) {
 		SpringApplication.run(WebserverPtransversalApplication.class, args);
 	}

@@ -12,8 +12,13 @@ import dto.internal.VehicleDTO;
 import repository.FireFighterRepository;
 import repository.FireRepository;
 import repository.FireStationRepository;
+import repository.J_TVehicle_TFireRepository;
+import repository.OperationRepository;
 import repository.SensorRepository;
+import repository.TypeFireRepository;
+import repository.TypeVehicleRepository;
 import repository.VehicleRepository;
+import dto.internal.*;
 
 @Service
 public class ResourceService {
@@ -31,6 +36,18 @@ public class ResourceService {
 
 	@Autowired
     public SensorRepository sensorRepository;
+
+    @Autowired
+    public TypeFireRepository typeFireRepository;
+
+    @Autowired
+    public TypeVehicleRepository typeVehicleRepository;
+
+    @Autowired
+    public OperationRepository operationRepository;
+
+    @Autowired
+    public J_TVehicle_TFireRepository j_TVehicle_TFireRepository;
     
     public List<FireStationDTO> getAllFireStation()
     {
@@ -51,4 +68,29 @@ public class ResourceService {
     {
         return sensorRepository.findAll();
     }
+
+    public List<TypeFireDTO> getAllTypeFire()
+    {
+        return typeFireRepository.findAll();
+    }
+
+    
+    public List<J_TVehicle_TFireDTO> getAllTVehicle_TFire()
+    {
+        return j_TVehicle_TFireRepository.findAll();
+    }
+
+    /*
+    public List<TypeVehicleRepository> getAllSensor()
+    {
+        return sensorRepository.findAll();
+    }
+
+    /*
+    public List<OperationRepository> getAllSensor()
+    {
+        return operationRepository.findAll();
+    }
+
+    */
 }
