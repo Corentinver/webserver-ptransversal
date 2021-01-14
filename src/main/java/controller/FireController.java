@@ -43,7 +43,7 @@ public class FireController {
 		//passerelleService.newFire(fire);
 		socketService.sendNewFire(fire);
 		FireDTO savedFire = fireRepository.save(fire);
-		//jmsTemplate.convertAndSend(queueFire, savedFire);
+		jmsTemplate.convertAndSend(queueFire, savedFire);
 		return savedFire;
 	}
 

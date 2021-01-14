@@ -124,7 +124,6 @@ public class ResourceService {
     }
 
     public FireStationResourcesDTO getFireStationResourcesAvailable(String idFireStation){
-        System.out.println(idFireStation);
         List<FireFighterDTO> fireFighters = fireFighterRepository.findByIdFireStation(new ObjectId(idFireStation));
         List<VehicleDTO> listVehicles = vehicleRepository.findByIdFireStation(new ObjectId(idFireStation));
         List<FireDTO> listFires = fireRepository.findByState(FireDTO.stateFire.InOperation.toString());
@@ -166,7 +165,10 @@ public class ResourceService {
         FireStationResourcesDTO fireStationResources = new FireStationResourcesDTO();
         fireStationResources.setId(idFireStation);
     	fireStationResources.setIdFireFighters(listFireFighterToReturn);
-    	fireStationResources.setVehicles(listVehiclesToReturn);
+        fireStationResources.setVehicles(listVehiclesToReturn);
+        
+        System.out.println("Fire station id :" + idFireStation);
+        System.out.println("List : " + listFireFighterToReturn);
     	return fireStationResources;
     }
 

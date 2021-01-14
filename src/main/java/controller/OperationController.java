@@ -30,14 +30,15 @@ public class OperationController {
 
 
 	@PostMapping("/newOperation")
-	public void newOperation(@RequestBody OperationDTO operation) {
-		operationRepository.save(operation);
+	public OperationDTO newOperation(@RequestBody OperationDTO operation) {
+		OperationDTO savedOperation =  operationRepository.save(operation);
+		return savedOperation;
 	}
 	
 	@PostMapping("/sendRide")
 	public void newRide(@RequestBody RideDTO ride) {
 		socketService.sendRide(ride);
-		System.out.println(ride.duration);
+		System.out.println("Fire id : ride : " + ride.operationId);
 	}
 	
 	
