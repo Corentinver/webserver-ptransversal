@@ -38,7 +38,7 @@ public class MapBoxService {
 	
 	public double getRouteDuration(MapBoxDTO mapBox) {
 		if (mapBox != null && mapBox.getRoutes().size() > 0) {
-			return mapBox.getRoutes().get(0).getDuration();
+			return Math.round(mapBox.getRoutes().get(0).getDuration());
 		}
 		return 0;
 	}

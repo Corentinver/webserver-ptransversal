@@ -57,7 +57,7 @@ public class FireController {
 
 	@GetMapping("/unmanagedFire")
 	public List<FireDTO> unmanagedFire(){
-		return fireRepository.findByState(FireDTO.stateFire.InOperation.toString());
+		return fireRepository.findByState(FireDTO.stateFire.Initialize.toString());
 	}
 
 }

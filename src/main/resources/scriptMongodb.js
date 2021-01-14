@@ -137,6 +137,237 @@ var fireFighters = [
     },
     {
         name: "François Belge"
+    },
+    {
+        name: "Gérard Bertrand"
+    },
+    {
+        name: "Jeannine Fournier"
+    },
+    {
+        name: "Étienne Audet"
+    },
+    {
+        name: "Gilles Lepage"
+    },
+    {
+        name: "Isaac Couture"
+    },
+    {
+        name: "Sébastien-Yvon Charbonneau"
+    },
+    {
+        name: "Honorée Legault"
+    },
+    {
+        name: "Gabrielle Tremblay"
+    },
+    {
+        name: "Albert Gingras"
+    },
+    {
+        name: "Benoît Martin"
+    },
+    {
+        name: "Luc Perreault"
+    },
+    {
+        name: "Anouk Proulx"
+    },
+    {
+        name: "Cécile Morin"
+    },
+    {
+        name: "Albert Lessard"
+    },
+    {
+        name: "François Boucher"
+    },
+    {
+        name: "Michelle Gagnon-Beaulieu"
+    },
+    {
+        name: "Louise Desjardins-Larouche"
+    },
+    {
+        name: "Arianne Gaudreault"
+    },
+    {
+        name: "Patrice Therrien"
+    },
+    {
+        name: "Jacqueline Mercier"
+    },
+    {
+        name: "Julien St-Pierre"
+    },
+    {
+        name: "Albert Lemieux"
+    },
+    {
+        name: "Alexandra Langlois"
+    },
+    {
+        name: "Mathieu Leblanc"
+    },
+    {
+        name: "Émanuelle Bernier"
+    },
+    {
+        name: "Patricia Leblanc"
+    },
+    {
+        name: "Caroline Caron-Boucher"
+    },
+    {
+        name: "Benjamin Lacroix"
+    },
+    {
+        name: "Benoit Allard"
+    },
+    {
+        name: "Brigitte Fournier-Paradis"
+    },
+    {
+        name: "Guillaume Gilbert"
+    },
+    {
+        name: "Alysson Therrien"
+    },
+    {
+        name: "Suzanne Gosselin"
+    },
+    {
+        name: "Dominique-Geneviève Bélanger"
+    },
+    {
+        name: "Anaïs Bérubé"
+    },
+    {
+        name: "Roland Allard"
+    },
+    {
+        name: "Tristan Vachon"
+    },
+    {
+        name: "Marcel-Grégory Lepage"
+    },
+    {
+        name: "François Belge"
+    },
+    {
+        name: "Xavier Clavier"
+    },
+    {
+        name: "Jeanne Eau"
+    },
+    {
+        name: "François Belge"
+    },
+    {
+        name: "Xavier Clavier"
+    },
+    {
+        name: "Jeanne Eau"
+    },
+    {
+        name: "François Belge"
+    },
+    {
+        name: "Xavier Clavier"
+    },
+    {
+        name: "Jeanne Eau"
+    },
+    {
+        name: "François Belge"
+    },
+    {
+        name: "Xavier Clavier"
+    },
+    {
+        name: "Jeanne Eau"
+    },
+    {
+        name: "François Belge"
+    },
+    {
+        name: "Xavier Clavier"
+    },
+    {
+        name: "Jeanne Eau"
+    },
+    {
+        name: "François Belge"
+    },
+    {
+        name: "Xavier Clavier"
+    },
+    {
+        name: "Jeanne Eau"
+    },
+    {
+        name: "François Belge"
+    },
+    {
+        name: "Xavier Clavier"
+    },
+    {
+        name: "Jeanne Eau"
+    },
+    {
+        name: "François Belge"
+    },
+    {
+        name: "Xavier Clavier"
+    },
+    {
+        name: "Jeanne Eau"
+    },
+    {
+        name: "François Belge"
+    },
+    {
+        name: "Xavier Clavier"
+    },
+    {
+        name: "Jeanne Eau"
+    },
+    {
+        name: "François Belge"
+    },
+    {
+        name: "Xavier Clavier"
+    },
+    {
+        name: "Jeanne Eau"
+    },
+    {
+        name: "François Belge"
+    },
+    {
+        name: "Xavier Clavier"
+    },
+    {
+        name: "Jeanne Eau"
+    },
+    {
+        name: "François Belge"
+    },
+    {
+        name: "Xavier Clavier"
+    },
+    {
+        name: "Jeanne Eau"
+    },
+    {
+        name: "François Belge"
+    },
+    {
+        name: "Xavier Clavier"
+    },
+    {
+        name: "Jeanne Eau"
     }
 ];
 
@@ -150,7 +381,7 @@ fireFighters.forEach(fireFighter => {
     };
 
     insertCompteur++;
-    if (insertCompteur == 3) {
+    if (insertCompteur == 14) {
         insertCompteur = 0;
         id++;
     }
@@ -189,6 +420,8 @@ fireStations.forEach(fireStation => {
             idType: type._id,
             idFireStation: fireStation._id
         };
+        db.Vehicle.insert(insertVehicle);
+        db.Vehicle.insert(insertVehicle);
         db.Vehicle.insert(insertVehicle);
         db.Vehicle.insert(insertVehicle);
     });
