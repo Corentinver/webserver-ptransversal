@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.yaml.snakeyaml.util.ArrayUtils;
 
 import dto.internal.FireDTO;
 import dto.internal.OperationDTO;
@@ -58,6 +59,14 @@ public class FireController {
 	@GetMapping("/unmanagedFire")
 	public List<FireDTO> unmanagedFire(){
 		return fireRepository.findByState(FireDTO.stateFire.InOperation.toString());
+	}
+	
+	@GetMapping("/activeFires") 
+	public List<FireDTO> listActiveFires() {
+		List<FireDTO> firesInOperation = fireRepository.findByState(FireDTO.stateFire.InOperation.toString());
+		List<FireDTO> firesInitialize = fireRepository.findByState(FireDTO.stateFire.Initialize.toString());
+		firesInOperation.addAll(firesInitialize);
+		return firesInOperation;
 	}
 	
 	/*
