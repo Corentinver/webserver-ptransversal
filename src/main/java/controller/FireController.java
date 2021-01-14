@@ -41,7 +41,7 @@ public class FireController {
 	@PostMapping("/newFire")
 	public FireDTO newFire(@RequestBody FireDTO fire) {
 		//passerelleService.newFire(fire);
-		socketService.sendNewFire(fire);
+		//socketService.sendNewFire(fire);
 		FireDTO savedFire = fireRepository.save(fire);
 		jmsTemplate.convertAndSend(queueFire, savedFire);
 		return savedFire;
@@ -51,7 +51,7 @@ public class FireController {
 	@PostMapping("/updateFire")
 	public void updateFire(@RequestBody FireDTO fire) {
 		//passerelleService.newFire(fire);
-		socketService.updateFire(fire);
+		//socketService.updateFire(fire);
 		FireDTO savedFire = fireRepository.save(fire);
 	}
 
@@ -59,5 +59,25 @@ public class FireController {
 	public List<FireDTO> unmanagedFire(){
 		return fireRepository.findByState(FireDTO.stateFire.InOperation.toString());
 	}
+	
+	/*
+	 * Endpoint pour la Passerelle-Micro:bit-EM
+	 */
+	@PostMapping("/newFirePasserelle")
+	public FireDTO newFireFromPasserelle(@RequestBody FireDTO fire) {
+		socketService.sendNewFire(fire);
+		FireDTO savedFire = fireRepository.save(fire);
+		//jmsTemplate.convertAndSend(queueFire, savedFire);
+		return savedFire;
+	}
 
+
+	/*
+	 * Endpoint pour la Passerelle-Micro:bit-EM
+	 */
+	@PostMapping("/updateFirePasserelle")
+	public void updateFirePasserelle(@RequestBody FireDTO fire) {
+		socketService.updateFire(fire);
+		FireDTO savedFire = fireRepository.save(fire);
+	}
 }
