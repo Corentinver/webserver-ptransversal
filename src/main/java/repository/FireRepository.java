@@ -12,6 +12,6 @@ public interface FireRepository extends MongoRepository<FireDTO, String> {
 	
 	public FireDTO findByIntensity(double intensity);
 
-	public List<FireDTO> findByState(String string);
+	public List<FireDTO> findByState(String state);
 
 }

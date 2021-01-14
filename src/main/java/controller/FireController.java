@@ -1,10 +1,13 @@
 package controller;
 
+import java.util.List;
+
 import javax.jms.Queue;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.core.JmsTemplate;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,6 +53,11 @@ public class FireController {
 		//passerelleService.newFire(fire);
 		socketService.updateFire(fire);
 		FireDTO savedFire = fireRepository.save(fire);
+	}
+
+	@GetMapping("/unmanagedFire")
+	public List<FireDTO> unmanagedFire(){
+		return fireRepository.findByState(FireDTO.stateFire.InOperation.toString());
 	}
 
 }

@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import dto.internal.*;
+import dto.mapbox.MapBoxDTO;
+import service.MapBoxService;
 import service.ResourceService;
 
 @RestController
@@ -21,6 +24,9 @@ public class ResourceController {
 	
 	@Autowired
 	public ResourceService resourceService;
+
+	@Autowired
+	public MapBoxService mapBoxService;
 	
 	@GetMapping("/allFireStation") 
 	public List<FireStationDTO> allFireStation() 
@@ -76,6 +82,26 @@ public class ResourceController {
 		System.out.println(idVehicle);
 		return resourceService.getPointDTOByVehicle(idVehicle);
 	}
+	
+	
+	@GetMapping("/getMapFireStationByDistance") 
+	public HashMap getMapFireStationByDistance(@RequestHeader double endLatitude, @RequestHeader double endLongitude)
+	{
+		List<FireStationDTO> fireStations = resourceService.getAllFireStation();
+		HashMap<Double, String> fireStationMap = new HashMap<Double, String>();
+        for(FireStationDTO f : fireStations){
+			MapBoxDTO mapBox = mapBoxService.getObjectMapBox(new PointDTO(f.location.latitude, f.location.longitude), new PointDTO(endLatitude, endLongitude));
+            fireStationMap.put(mapBoxService.getRouteDuration(mapBox), f.id);
+		}
+
+		return fireStationMap;
+	}
+
+	@GetMapping("/ressourcesFireStation")
+	public FireStationResourcesDTO getFireStationResourcesAvailable(@RequestHeader String idFireStation){
+		return resourceService.getFireStationResourcesAvailable(idFireStation);
+	}
+	
 		
 	
 }

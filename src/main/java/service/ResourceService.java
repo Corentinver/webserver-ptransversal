@@ -1,13 +1,14 @@
 package service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import org.assertj.core.util.Arrays;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.geo.Point;
 import org.springframework.stereotype.Service;
 
 import dto.internal.FireFighterDTO;
@@ -121,4 +122,59 @@ public class ResourceService {
     	fireStationInfos.buildVehiclesByType(listVehicles);
     	return fireStationInfos;  	
     }
+
+    public FireStationResourcesDTO getFireStationResourcesAvailable(String idFireStation){
+        System.out.println(idFireStation);
+        List<FireFighterDTO> fireFighters = fireFighterRepository.findByIdFireStation(new ObjectId(idFireStation));
+        List<VehicleDTO> listVehicles = vehicleRepository.findByIdFireStation(new ObjectId(idFireStation));
+        List<FireDTO> listFires = fireRepository.findByState(FireDTO.stateFire.InOperation.toString());
+        List<String> idFires = new ArrayList<String>();
+        listFires.forEach(fire -> idFires.add(fire.id));
+
+        Iterable<OperationDTO> listOperation = operationRepository.findAllByIdFire((Iterable<String>)idFires);
+        List<String> idVehicleToRemove = new ArrayList<String>();
+        List<String> idFireFighterToRemove = new ArrayList<String>();
+        for(OperationDTO operationDTO : listOperation){
+            for(String id : operationDTO.idVehicle){
+                if(!idVehicleToRemove.contains(id)){
+                    idVehicleToRemove.add(id);
+                }
+            }
+
+            for(String id : operationDTO.idFireFighter){
+                if(!idFireFighterToRemove.contains(id)){
+                    idFireFighterToRemove.add(id);
+                }
+            }
+        }
+        List<VehicleDTO> listVehiclesToReturn = new ArrayList<VehicleDTO>();
+        List<String> listFireFighterToReturn = new ArrayList<String>();
+
+        listVehicles.forEach(vehicle -> {
+            if(!idVehicleToRemove.contains(vehicle.id)){
+                listVehiclesToReturn.add(vehicle);
+            }
+        });
+
+        fireFighters.forEach(fireFighter -> {
+            if(!idFireFighterToRemove.contains(fireFighter.id)){
+                listFireFighterToReturn.add(fireFighter.id);
+            }
+        });
+
+
+        FireStationResourcesDTO fireStationResources = new FireStationResourcesDTO();
+        fireStationResources.setId(idFireStation);
+    	fireStationResources.setIdFireFighters(listFireFighterToReturn);
+    	fireStationResources.setVehicles(listVehiclesToReturn);
+    	return fireStationResources;
+    }
+
+    /**
+     * 
+     * Si j'ai le temps
+     * Optimisation du code
+     * List<VehicleDTO> filterVehicle = vehicles.stream().filter(ve -> (station.get().id.equals(ve.idFireStation))).collect(Collectors.toList());
+                List<FireFighterDTO> filterFireFighter = fireFighters.stream().filter(fe -> (station.get().id.equals(fe.idFireStation))).collect(Collectors.toList());
+     */
 }
