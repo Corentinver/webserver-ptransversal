@@ -31,15 +31,13 @@ public class OperationController {
 
 	@PostMapping("/newOperation")
 	public void newOperation(@RequestBody OperationDTO operation) {
-		//passerelleService.newFire(fire);
-		//socketService.sendNewFire(fire);
 		operationRepository.save(operation);
-		//jmsTemplate.convertAndSend(queueFire, savedFire);
 	}
 	
 	@PostMapping("/sendRide")
 	public void newRide(@RequestBody RideDTO ride) {
 		socketService.sendRide(ride);
+		System.out.println(ride.duration);
 	}
 	
 	

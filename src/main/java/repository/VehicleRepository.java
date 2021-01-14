@@ -16,4 +16,5 @@ public interface VehicleRepository extends MongoRepository<VehicleDTO, String> {
 	
 	public List<VehicleDTO> findByIdFireStation(ObjectId idFireStation);
 	
+	
 }
