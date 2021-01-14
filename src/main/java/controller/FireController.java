@@ -40,7 +40,7 @@ public class FireController {
 		//passerelleService.newFire(fire);
 		socketService.sendNewFire(fire);
 		FireDTO savedFire = fireRepository.save(fire);
-		jmsTemplate.convertAndSend(queueFire, savedFire);
+		//jmsTemplate.convertAndSend(queueFire, savedFire);
 		return savedFire;
 	}
 
@@ -52,4 +52,19 @@ public class FireController {
 		FireDTO savedFire = fireRepository.save(fire);
 	}
 
+	
+	@PostMapping("/newFirePasserelle")
+	public FireDTO newFirePasserelle(@RequestBody FireDTO fire) {
+		socketService.sendNewFire(fire);
+		FireDTO savedFire = fireRepository.save(fire);
+		jmsTemplate.convertAndSend(queueFire, savedFire);
+		return savedFire;
+	}
+
+
+	@PostMapping("/updateFirePasserelle")
+	public void updateFirePasserelle(@RequestBody FireDTO fire) {
+		socketService.updateFire(fire);
+		FireDTO savedFire = fireRepository.save(fire);
+	}
 }
